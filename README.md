@@ -1,0 +1,6 @@
+# README
+
+> **PYTHON** / **WEB** / **DJANGO**
+
+- HOMEWORK
+- WORKSHOP
