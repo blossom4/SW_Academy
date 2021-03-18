@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="01_nav_footer.css">
+  <link rel="stylesheet" href="02_home.css">
+  <title>Home</title>
+  <style>
+    nav {
+      height: 80px;
+    }
+
+    nav img {
+      height: 80px;
+    }
+
+    footer {
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 01_nav_footer.html -->
+  <!-- 01_nav_footer 에서 완성한 Navigation bar 코드를 붙여넣어 주세요. -->
+  <!-- 01_nav_footer.html -->
+  <nav class="fixed-top d-flex justify-content-between align-items-center bg-dark">
+    <a href="file:///C:/Users/cho82/projects/pjt03/01_nav_footer.html" class="ms-5">
+      <img src="images/logo.png" alt="Logo Image">
+    </a>
+    <!--메인축을 가로로바꿔주고 양끝으로 보낸다. list-line은 앞의 불릿바크를 없애주고 m-0은 중앙정렬이 안맞는것같을때 마진을 아예 없애준다.-->
+    <ul class="d-flex justify-content-between list-inline m-0">
+      <!--mx-3 마진은 주변과의 간격 padding은 내부의 간격-->
+      <li class="mx-3"><a href="file:///C:/Users/cho82/projects/pjt03/02_home.html" class="text-white text-decoration-none">Home</a></li>
+      <li class="mx-3"><a href="file:///C:/Users/cho82/projects/pjt03/03_community.html" class="text-secondary text-decoration-none">Community</a></li>
+      <li class="ms-3 me-5"><a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a></li>
+    </ul>
+  </nav>
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3 mx-3">
+            <label for="exampleFormControlInput1" style="font-weight: bold;" class="form-label">Username</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="username">
+          </div>
+          <div class="mb-3 mx-3">
+            <label for="exampleFormControlInput1" style="font-weight: bold;" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="password">
+          </div>
+          <div class="form-check mx-3 d-flex justify-content-between">
+            <div>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" style="font-weight: bold;" for="flexCheckDefault">
+                Rememeber me
+              </label>
+            </div>         
+            <a href="" class="text-decoration-none">Forgot your password?</a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 02_home.html -->
+  <header>
+    <p style="height: 63px;"></p>
+    <div id="carouselExampleIndicators" class="carousel slide m-0" data-bs-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/header1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/header2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/header3.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
+  </header>
+
+  <h1 class="d-flex justify-content-center m-5 fw-bold">Boxoffice</h1>
+  <hr>
+
+  <section class="m-5">
+    <div class="row d-flex justify-content-center">
+      <div class="card item " style="width: 18rem;">
+        <img src="images/movie1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text m-0 fw-bold">BREAKING BAD 2008.</p>
+          <hr class="mt-0">
+          <p class="mb-0">About a chemical teacher who manufactures drugs for his family.</p>
+          
+        </div>
+      </div>
+      <div class="card item col-4" style="width: 18rem;">
+        <img src="images/movie2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text m-0 fw-bold">KAAFIRON KI NAMAZZ 2013.</p>
+          <hr class="mt-0">
+          <p class="mb-0">About a recently court martialed army officer, a writer and a musician who confess their most personal secrets.</p>
+        </div>
+      </div>
+      <div class="card item col-4" style="width: 18rem;">
+        <img src="images/movie3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text m-0 fw-bold">INSURGENT 2015.</p>
+          <hr class="mt-0">
+          <p class="mb-0">A huge secret that finally comes to be revealed! Rebellion for freedom, destroy the system!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="card item col-4" style="width: 18rem;">
+        <img src="images/movie4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text m-0 fw-bold">FIGHT CLUB 1999.</p>
+          <hr class="mt-0">
+          <p class="mb-0">Flying out to be an action movie with a devastating counter in the common sense and who has always believed rules!</p>
+        </div>
+      </div>
+      <div class="card item col-4" style="width: 18rem;">
+        <img src="images/movie5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text m-0 fw-bold">LEON 1995.</p>
+          <hr class="mt-0">
+          <p class="mb-0">“I want to be happy. sleep and root will make.” - Leon.</p>
+        </div>
+      </div>
+      <div class="card item col-4" style="width: 18rem;">
+        <img src="images/movie6.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text m-0 fw-bold">JOKER 2019.</p>
+          <hr class="mt-0">
+          <p class="mb-0">"I thought my life was a tragedy, but it was a comedy." -JOKER.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 01_nav_footer.html -->
+  <!-- 01_nav_footer 에서 완성한 Footer 코드를 붙여넣어 주세요. -->
+  <!-- footer -->
+  <footer class="d-flex justify-content-center align-items-center  fixed-bottom">
+    <p class="m-0">Web Bootstrap Project 03 Created by Young-shin Jo</p>
+  </footer>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

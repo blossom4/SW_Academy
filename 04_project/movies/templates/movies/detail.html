@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ movie.title }}</h1>
+  <p>{{ movie.overview }}</p>
+  <p>{{ movie.poster_path }}</p>
+  <a href="{% url 'movies:edit' movie.pk %}" class="btn btn-secondary">Edit</a>
+  <a href="{% url 'movies:delete' movie.pk %}" class="btn btn-dark-light">Delete</a>
+{% endblock content %}
