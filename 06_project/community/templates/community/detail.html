@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'community/_card.html' %}
+<hr>
+<div class="align-items-center">
+  <h5>{{ comments|length }}개의 댓글이 있습니다.</h5>
+  <form action="{% url 'community:create_comments' review.pk %}" method="POST">
+    {% csrf_token %}
+    {{ comment_form }}
+    <input class="btn btn-dark" type="submit" value="Submit">
+  </form>
+  {% for comment in comments %}
+    <p class="my-3">{{ comment.content }}</p>
+  {% endfor %}
+
+</div>
+{% endblock content %}

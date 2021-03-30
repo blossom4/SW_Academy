@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ user_info.username }}님의 페이지입니다.</h1>
+  <div class="col row-cols-1 row-cols-md-3 g-4 my-3">
+    {% for reivew in user_info.review_set.all %}
+      <div class="col my-3">
+        {% include 'community/_card.html' %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
