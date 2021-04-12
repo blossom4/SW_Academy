@@ -1,0 +1,58 @@
+[
+    {
+        "model": "posts.post",
+        "pk": 1,
+        "fields": {
+            "title": "먹을거",
+            "choiceA": "떡꼬치",
+            "choiceB": "닭꼬치",
+            "poster_path": "https://cdn.class101.net/images/a3490a1a-649e-4812-89a3-5511efc3b08d",
+            "user": 1
+        }
+    },
+    {
+        "model": "posts.post",
+        "pk": 2,
+        "fields": {
+            "title": "여행지",
+            "choiceA": "산",
+            "choiceB": "바다",
+            "poster_path": "https://postfiles.pstatic.net/MjAyMTAzMzBfMTYy/MDAxNjE3MDgxNjIwMjEy.onYEvpjLCB5QbJbuChsVlNVttjfyE8S7BL1TwbwOiLog.3HmHwusyB3oLQCrUEULFLo2GRANyGp5BDvGymM-qky0g.PNG.alternative3/%EC%82%B0_%EB%B0%94%EB%8B%A4.png?type=w580",
+            "user": 1
+        }
+    },
+    {
+        "model": "posts.post",
+        "pk": 3,
+        "fields": {
+            "title": "마실꺼",
+            "choiceA": "맥주",
+            "choiceB": "소주",
+            "poster_path": "https://postfiles.pstatic.net/MjAyMTAzMzBfNTUg/MDAxNjE3MDgxNTEwMzkx.oAR5mtHmNYhy2okxW7klj_XXjfokDZyKmjkKM0kP_G4g.PejG1xecYBr8zkOUjvs5n-i1H8qFnJgiWzx053WS1BEg.PNG.alternative3/111.png?type=w580",
+            "user": 1
+        }
+    },
+    {
+        "model": "posts.post",
+        "pk": 4,
+        "fields": {
+            "title": "동물",
+            "choiceA": "개",
+            "choiceB": "고양이",
+            "poster_path": "https://media.istockphoto.com/vectors/puppy-and-kitten-icon-vector-id1076194902?k=6&m=1076194902&s=612x612&w=0&h=U_MIghQkgEMO6QBqluLsYHekkFuIk0xJk2VxJJVS5cY=",
+            "user": 1
+        }
+    },
+    {
+        "model": "posts.post",
+        "pk": 5,
+        "fields": {
+            "title": "아무거나",
+            "choiceA": "이거",
+            "choiceB": "저거",
+            "poster_path": "https://data.ac-illust.com/data/thumbnails/2a/2a2127b1c718e4c2c056eddf3b505dc0_t.jpeg",
+            "user": 1
+        }
+    }
+    ]
+    

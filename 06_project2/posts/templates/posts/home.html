@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="align-items-center">
+
+        {% if user.is_authenticated %}
+            <h1 class="text-center my-5" style="font-size: 500%;">{{ user }}! either A or B?</h1>
+        {% else %}
+            <h1 class="text-center mt-5" style="font-size: 500%;">Web Page</h1>
+            <h1 class="text-center mb-5" style="font-size: 500%;">either A or B?</h1>
+        {% endif %}
+        <div>
+            <a class="d-grid gap-2 col-6 mx-auto text-decoration-none" href="{% url 'posts:index' %}"><button class="btn-lg btn-dark m-5">Let's go</button></a>
+        </div>
+    </div>
+    <footer class="fixed-bottom justify-content-center bg-light text-secondary text-center p-3 mt-5">
+        <h1 style="font-size: 100%;">Web Page for either - Created By Moon or Cho</h1>
+        <h1 style="font-size: 100%;">2021. All Right Reserved Either Moon or Cho</h1>
+    </footer>
+{% endblock content %}

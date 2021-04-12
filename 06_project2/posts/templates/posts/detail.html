@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="d-flex justify-content-between" >
+<h1>{{ post.title }}</h1>
+<div class="d-flex justify-content-end align-items-center">
+	<a href="{% url 'posts:update' post.pk %}" class="btn btn-dark btn-sm">Update</a>
+	<form action="{% url 'posts:delete' post.pk %}" method="POST">
+		{% csrf_token %}
+		<button class="btn btn-outline-dark mx-1 btn-sm">Delete</button>
+	</form>
+</div>
+</div>
+
+<span class="border-0 d-flex justify-content-center mt-5">
+	<div class="col-10 w-100">
+		<!-- Question -->
+		<div class="card mb-3 border-0" style="max-width: 30%px;">
+			<div class="row g-0">
+				<form class="offset-1 col-4 d-flex justify-content-center align-items-center rounded" action="{% url 'posts:comment_create' post.pk %}" method="POST">
+					{% csrf_token %}
+						<input class="fs-1 btn btn-lg w-100 h-100 bg-dark text-light" type="submit" value="{{ post.choiceA }}">
+						<input name="choice" type="hidden" value="A">
+				</form>
+				<div class="col-2 d-flex justify-content-center rounded">
+					<h1 style="font-size: 500%;" class="card-text my-3 fw-bold">VS</h1>
+				</div>
+				<form class="col-4 d-flex justify-content-center align-items-center rounded" action="{% url 'posts:comment_create' post.pk %}" method="POST">
+					{% csrf_token %}
+					<input class="fs-1 btn btn-lg w-100 h-100 bg-light text-dark" type="submit" value="{{ post.choiceB }}">
+					<input name="choice" type="hidden" value="B">
+				</form>
+			</div>
+		</div>
+
+		<!-- Percent Bar -->
+		<div class="progress mt-5">
+			<div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar" style="width: {{ percent_a }}%"></div>
+			<div class="progress-bar progress-bar-striped progress-bar-animated bg-gray-500" role="progressbar" style="width: {{ percent_b }}%; background-color: lightgray;"></div>
+		</div>
+		<div class="d-flex justify-content-between mt-3">
+			<div>
+				<h5>{{ count_a }}</h5>
+				<h3>{{ percent_a }}%</h3>
+			</div>
+			<div>
+				<h5 class="text-end">{{ count_b }}</h5>
+				<h3>{{ percent_b }}%</h3>
+			</div>
+		</div>
+
+		<!-- Image -->
+		<div class="d-flex">
+			<img src="{{ post.poster_path }}" style="width: 25%;" class="mx-auto">
+		</div>
+
+		<hr>
+
+		<!-- Comments -->
+		<h3>Comments</h3>
+		<hr>
+		<h5>{{ comments|length }}개의 댓글이 있습니다.</h5>
+		<form class="d-flex justify-content-between" action="{% url 'posts:comment_create' post.pk %}" method="POST">
+			{% csrf_token %}
+			<select name="choice" class="form-select" id="id_choice" style="width: fit-content; margin-right: 1%;">
+				<option selected value="A">A</option>
+				<option value="B">B</option>
+			</select>
+			<input class="border-0" type="text" name="content" placeholder="댓글 입력해주세요..." id="id_content" maxlength="500" style="width: 74%">
+			<input type="submit" class="btn btn-dark" value="Submit" style="margin-left: 14%;">
+		</form>
+		<div class="my-2">
+		{% for comment in comments %}
+			<div class="d-flex justify-content-between">
+				<div class="d-flex align-items-center">
+					{% if comment.choice == 'A' %}
+					<h5 class="me-3 my-0 text-light bg-dark p-1 rounded text-center" style="width: 10vw">{{ post.choiceA }}</h5>
+					{% else %}
+					<h5 class="me-3 my-0 text-dark bg-light p-1 rounded text-center" style="width: 10vw">{{ post.choiceB }}</h5>
+					{% endif %}
+					{% if comment.content %}
+						<p class="m-0" style="vertical-align: middle;">{{ comment.user }}:  {{ comment.content }}</p>
+					{% else %}
+						<p class="m-0" style="vertical-align: middle;">{{ comment.user }} </p>
+					{% endif %}
+				</div>
+			
+			<form action="{% url 'posts:comment_delete' post.pk comment.pk %}" method="POST">
+					{% csrf_token %}
+					{{ comment.created_at }}
+					<input type="submit" value="Delete" class="btn btn-light">
+			</form>
+			</div>
+		{% empty %}
+			<p>아직 작성된 댓글이 없습니다.</p>
+		{% endfor %}
+	</div>
+</div>
+</span>
+<h1 class="text-light">aa</h1>
+{% endblock content %}
