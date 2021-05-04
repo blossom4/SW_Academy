@@ -7,7 +7,7 @@
 ## 1. 아래의 설명을 읽고 T/F 여부를 작성하시오.
 
 - JavaScript는 single threaded 언어로 한번에 한가지 일 밖에 처리하지 못한다. 
-  - (F)
+  - (T)
 - setTimeout은 브라우저의 Web API를 사용하는 함수로, Web API에서 동작이 완료 되면 Call Stack에 바로 할당된다. 
   - (F) queuestack 로 먼저가서 기존의 call stack이 처리될때까지 기다린다.
 - Prmoise 객체를 생성할 때 인자로 받는 callback 함수인 resolve와 reject는 비동기 처리가 성공/실패 했을 경우 어떠한 값을 전달할지 결정한다. 
