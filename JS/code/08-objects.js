@@ -35,6 +35,8 @@ const data = {
   ],
 }
 
+const res = data.items[0].name
+
 
 /*
 [Object 축약 문법]
@@ -44,6 +46,11 @@ const data = {
 
 const username = 'hailey'
 const contact = '010-1234-5678'
+
+const user = {
+  username,
+  contact,
+}
 
 
 /*
@@ -69,4 +76,14 @@ function saveUserData (users) {
   })
 
   return userData
+}
+
+function saveUserData(users) {
+  return users.map(function({name, contact}, index) {
+    return {
+      id: index,
+      name,
+      contact,
+    }
+  })
 }
