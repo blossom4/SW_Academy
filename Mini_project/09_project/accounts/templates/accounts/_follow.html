@@ -1,0 +1,56 @@
+<div class="jumbotron text-center text-white bg-dark">
+  <p class="lead mb-1">작성자 정보</p>
+  <h1 class="display-4">{{ person.username }}</h1>
+  <hr>
+  {% with followings=person.followings.all followers=person.followers.all %}
+    <p class="lead">
+      팔로잉 : {{ followings|length }} / 팔로워 : <span id="followerCount">{{ followers|length }}</span>
+    </p>
+    <!-- 팔로우 버튼 -->
+    {% if request.user != person %}
+      <form id="follow-form">
+        {% csrf_token %}
+        {% if request.user in followers %}
+          <button id="followBtn" class="btn-secondary btn-lg" role="button">Unfollow</button>
+        {% else %}
+          <button id="followBtn" class="btn-primary btn-lg" role="button">Follow</button>
+        {% endif %}
+      </form>
+    {% endif %}
+  {% endwith %}
+</div>
+<script>
+  const followForm = document.querySelector('#follow-form')
+  const csrfToken = document.querySelector('[name="csrfmiddlewaretoken"]').value 
+  followForm.addEventListener('submit', function (e) {
+    e.preventDefault()
+
+    const requestData = {
+      method: 'post',
+      url: `http://127.0.0.1:8000/accounts/follow/{{ person.pk }}/`,
+      headers: {'X-CSRFToken': csrfToken},
+    }
+
+    axios(requestData)
+      .then((res)=>{
+        const { following, followerCount } = res.data
+        const followBtn = document.querySelector('#followBtn')
+        const followerCountSpan = document.querySelector('#followerCount')
+
+        if (following) {
+          followBtn.innerText = 'Unfollow'
+          followBtn.classList.toggle('btn-primary')
+          followBtn.classList.toggle('btn-secondary')
+
+        } else {
+          followBtn.innerText = 'Follow'
+          followBtn.classList.toggle('btn-secondary')
+          followBtn.classList.toggle('btn-primary')
+        }
+        followerCountSpan.innerText = followerCount
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+  })
+</script>
