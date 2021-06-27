@@ -7,3 +7,7 @@ class Post(models.Model):
     content = models.TextField()
     image = models.ImageField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
+class Comment(models.Model):
+    content = models.CharField(max_length=100)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
