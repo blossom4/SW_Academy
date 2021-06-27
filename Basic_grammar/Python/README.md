@@ -1,0 +1,24 @@
+# README
+
+>  **PYTHON EXERCISE**
+
+- REVIEW
+- WORKSHOP
+- PRACTICE
+
+
+
+> **PYTHON LECTURE**
+
+- 00 ~ 05
+
+
+
+> **PYTHON TEST**
+
+- EXAM
+
+- QUIZ
+
+  
+
