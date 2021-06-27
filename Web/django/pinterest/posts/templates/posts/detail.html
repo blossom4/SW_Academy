@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<a class="btn btn-dark" href="{% url 'posts:update' post.pk %}">수정</a>
+	<form action="{% url 'posts:delete' post.pk %}" method="POST">
+		{% csrf_token %}
+		<input type="submit" value="DELETE" class="btn btn-secondary">
+	</form>
+	{% if post.image %}
+		<img src="{{ post.image.url }}" alt="{{ post.image }}" width="30%">
+	{% else %}
+		<h1>No Image</h1>
+	{% endif %}
+
+	<hr>
+
+	<form action="{% url 'posts:comment_create' post.pk %}" method="POST">
+		{% csrf_token %}
+			{{ form }}
+		<input type="submit" class="btn btn-dark">
+	</form>
+
+	<hr>
+	
+	<h5>{{ post.comment_set.all|length }}개의 댓글이 있습니다.</h5>
+	<div class="my-5">
+		{% for comment in post.comment_set.all %}
+			<div class="d-flex justify-content-between">
+				<p>{{ comment.content }}</p>
+				<form action="{% url 'posts:comment_delete' post.pk comment.pk %}" method="POST">
+					{% csrf_token %}
+					<input type="submit" value="DELETE" class="btn btn-secondary">
+				</form>
+			</div>
+		{% empty %}
+			<p>아직 작성된 댓글이 없습니다.</p>
+		{% endfor %}
+	</div>
+
+{% endblock content %}

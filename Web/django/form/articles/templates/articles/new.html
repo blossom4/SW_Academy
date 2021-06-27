@@ -1,0 +1,28 @@
+<h1>new</h1>
+
+<form action="" method="POST">
+	{% csrf_token %}
+    title : <input name="title" type="text" required>
+    content : <input name="content" type="text" required>
+    <input type="submit">
+</form>
+
+<hr>
+
+<form action="{% url 'articles:create' %}" method="POST">
+	<table>
+		{% csrf_token %}
+		{{ form.as_table }}
+		<input type="submit">
+	</table>
+</form>
+
+<hr>
+
+<form action="{% url 'articles:create' %}" method="POST">
+	<table>
+		{% csrf_token %}
+		{{ model_form.as_table }}
+		<input type="submit">
+	</table>
+</form>

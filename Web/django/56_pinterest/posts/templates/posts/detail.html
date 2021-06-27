@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <p>작성자 : <a href="{% url 'accounts:profile' post.user.pk %}">{{ post.user.username }}</a></p>
+  <a class="btn btn-warning" href="{% url 'posts:update' post.pk %}">수정</a>
+  {% if post.image %}
+    <img src="" alt="{{ post.image }}" width="100%">
+  {% else %}
+    <h1>이미지가 없습니다.</h1>
+  {% endif %}
+
+  <hr>
+  {% if request.user in post.like_users.all %}
+    <a href="{% url 'posts:like' post.pk %}">💗</a>
+  {% else %}
+  <a href="{% url 'posts:like' post.pk %}">🤍</a>
+  {% endif %}
+  
+  <hr>
+  <form action="{% url 'posts:comment_create' post.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+  </form>
+  <hr>
+
+  {% for comment in post.comment_set.all %}
+    <p>{{ comment.content }}</p>
+  {% endfor %}
+
+{% endblock content %}
