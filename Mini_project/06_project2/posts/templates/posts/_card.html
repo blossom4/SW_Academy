@@ -1,0 +1,14 @@
+<div class="col">
+  <div class="card">
+    <a class="text-decoration-none text-dark"style="height: fit-content;" href="{% url 'posts:detail' post.pk %}">
+      <div>
+        <h5 class="card-title ms-3 mt-3">
+          <p>{{ post.title }}</p>
+        </h5>
+        <div class="mt-4">
+          <img src="{{ post.poster_path }}" style="width: 100%;">
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

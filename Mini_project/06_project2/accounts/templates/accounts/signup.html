@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+	<h1 class="mb-5">회원가입</h1>
+	<div class="col-6">
+	<form action="" method="POST">
+		{% csrf_token %}
+		{% bootstrap_form form %}
+		<input class="mt-4 btn btn-dark mt-2" type="submit" value="Submit">
+	</form>
+	</div>
+
+{% endblock content %}

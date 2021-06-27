@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+  <h1>DETAIL PAGE</h1>
+  <hr>
+  <a href="{% url 'accounts:profile' review.user.pk %}">{{ review.user.username }}</a>
+  <p>{{ review.title }}</p>
+  <p>{{ review.movie_title }}</p>
+  <p>{{ review.content }}</p>
+  <p>{{ review.rank }}</p>
+  <p>{{ review.created_at }}</p>
+  <p>{{ review.updated_at }}</p>
+  {% if request.user in review.review_like.all %}
+    <a href="{% url 'community:like' review.pk %}">❤</a>
+  {% else %}
+    <a href="{% url 'community:like' review.pk %}">🤍</a>
+  {% endif %}
+  <p>{{ review.review_like.all.count }}명이 좋아합니다.</p>
+  <hr>
+  <h4>댓글 목록</h4>
+  <p>{{ comments|length }}개의 댓글이 있습니다.</p>
+  <ul>
+    {% for comment in comments %}
+      <li>{{ comment.content }}</li>
+    {% empty %}
+      <p>아직 댓글이 없네요...</p>
+    {% endfor %}
+  </ul>
+  <hr>
+  <form action="{% url 'community:comments_create' review.pk %}" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form comment_form %}
+    <input type="submit">
+  </form>
+  <a href="{% url 'community:index' %}">BACK</a>
+{% endblock %}

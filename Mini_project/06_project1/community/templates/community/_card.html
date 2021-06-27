@@ -1,0 +1,16 @@
+
+  <div class="card" style="width: 50rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ review.title }}</h5>
+      <hr>
+      <h6 class="card-subtitle mb-2 text-muted">{{ review.movie_title }}</h6>
+      <hr>
+      <h6 class="card-subtitle mb-2 text-muted">영화 평점: {{ review.rank }}</h6>
+      <hr>
+      <p class="fs-5card-text">{{ review.content }}</p>
+      <hr>
+      <p class="card-text">Created at: {{ review.created_at }}</p>
+      <p class="card-text">Updated at: {{ review.updated_at }}</p>
+      <a href="{% url 'community:index' %}" class="text-decoration-none text-dark fs-5 card-link">Home ></a>
+    </div>
+  </div>

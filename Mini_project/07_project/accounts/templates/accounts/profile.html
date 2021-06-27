@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ user_info.username }} 님의 프로필입니다.</h1>
+<hr>
+{% if request.user != user_info %}
+	{% if user in user_info.followers.all %}
+		<a href="{% url 'accounts:follow' user_info.pk %}">Unfollow</a>
+	{% else %}
+	<a href="{% url 'accounts:follow' user_info.pk %}">Follow</a>
+	{% endif %}
+{% endif %}
+<p>Following: {{ user_info.followings.count }}명</p>
+<p>Follower: {{ user_info.followers.count }}명</p>
+{% endblock content %}

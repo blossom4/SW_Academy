@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<h1>{{ user_info.username }}님의 프로필입니다.</h1>
+	<a class="btn btn-dark" href="{% url 'accounts:update' %}">Info Update</a>
+	<a class="btn btn-outline-dark" href="{% url 'accounts:delete' %}">Account Delete</a>
+	
+{% endblock content %}

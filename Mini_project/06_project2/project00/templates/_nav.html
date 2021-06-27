@@ -1,0 +1,24 @@
+<nav class="d-flex justify-content-between align-items-center bg-dark py-3 mb-5">
+	<a class="fw-bold fs-3 ms-5  text-white text-decoration-none" href="{% url 'posts:home' %}">EITHER?</a>
+
+		<ul class="d-flex justify-content-between list-inline m-0 fs-4">
+			{% if user.is_authenticated %}
+				<li class="mx-3"><a class="text-white text-decoration-none" href="{% url 'accounts:profile' user.username %}">{{ user }}</a></li>
+				<li class="mx-3"><a class="text-light text-decoration-none" href="{% url 'posts:random' %}">Random</a></li>
+				<li class="mx-3"><a class="text-light text-decoration-none" href="{% url 'posts:index' %}">Index</a></li>
+				<li class="mx-3"><a class="text-light text-decoration-none" href="{% url 'posts:create' %}">Create</a></li>
+				
+				<li class="me-5 ms-2">
+					<form action="{% url 'accounts:logout' %}" method="POST">
+						{% csrf_token %}
+						<input class="text-light bg-dark" type="submit" value="Logout">
+					</form>
+				</li>
+			{% else %}
+				<li class="mx-3"><a class="text-light text-decoration-none" href="{% url 'posts:index' %}">Index</a></li>
+				<li class="mx-3"><a class="text-light text-decoration-none" href="{% url 'accounts:signup' %}">Signup</a></li>
+				<li class="me-5"><a class="text-light text-decoration-none" href="{% url 'accounts:login' %}">Login</a><li>
+			{% endif %}
+		</ul>
+	</div>
+</nav>
